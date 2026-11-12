@@ -1,14 +1,20 @@
 # Time-Based Encounters Tutorial
 
 ## Table of Contents:
-- [What is the Time-Based Encounters feature?](#what-is-the-time-based-encounters-feature)
-  - [Sounds rad, how do I add it to my romhack?](#sounds-rad-how-do-i-add-it-to-my-romhack)
-  - [I've never added one by hand, but I want to!](#ive-never-added-one-by-hand-but-i-want-to)
-  - [What are "supported suffixes?"](#what-are-supported-suffixes)
-  - [That's a lot of manual editing.](#thats-a-lot-of-manual-editing)
-  - [That's *still* a lot of editing.](#thats-still-a-lot-of-editing)
-- [So what are the `#define` options in `overworld.h`?](#so-what-are-the-define-options-in-overworldh)
-- [Examples](#examples)
+- [Time-Based Encounters Tutorial](#time-based-encounters-tutorial)
+  - [Table of Contents:](#table-of-contents)
+  - [What is the Time-Based Encounters feature?](#what-is-the-time-based-encounters-feature)
+    - [Sounds rad, how do I add it to my romhack?](#sounds-rad-how-do-i-add-it-to-my-romhack)
+    - [I've never added one by hand, but I want to!](#ive-never-added-one-by-hand-but-i-want-to)
+    - [What are "supported suffixes?"](#what-are-supported-suffixes)
+    - [That's a lot of manual editing.](#thats-a-lot-of-manual-editing)
+    - [That's *still* a lot of editing.](#thats-still-a-lot-of-editing)
+  - [So what are the `#define` options in `overworld.h`?](#so-what-are-the-define-options-in-overworldh)
+  - [Examples](#examples)
+    - [Running the migration script without the `--copy` option](#running-the-migration-script-without-the---copy-option)
+      - [Result:](#result)
+    - [Running the migration script with the `--copy` option](#running-the-migration-script-with-the---copy-option)
+      - [Result:](#result-1)
 
 ## What is the Time-Based Encounters feature?
 Time-Based Encounters lets you pick which Pokémon appear based on the in-game clock, per route!

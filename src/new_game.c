@@ -57,7 +57,7 @@ extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
 
 static void ClearFrontierRecord(void);
-static void WarpToTruck(void);
+static void WarpToRoom(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
 static void ResetDexNav(void);
@@ -66,10 +66,9 @@ EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 EWRAM_DATA bool8 gEnableContestDebugging = FALSE;
 
 static const struct ContestWinner sContestWinnerPicDummy =
-{
-    .monName = _(""),
-    .trainerName = _("")
-};
+    {
+        .monName = _(""),
+        .trainerName = _("")};
 
 void SetTrainerId(u32 trainerId, u8 *dst)
 {
@@ -133,12 +132,13 @@ static void ClearFrontierRecord(void)
     gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
 }
 
-static void WarpToTruck(void)
+// PIGGY CHANGE TO ROOM
+static void WarpToRoom(void)
 {
-    if (IS_FRLG)
-        SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        SetWarpDestination(MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F), MAP_NUM(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F), WARP_ID_NONE, 1, 4);
     else
-        SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+        SetWarpDestination(MAP_GROUP(MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F), MAP_NUM(MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F), WARP_ID_NONE, 7, 4);
     WarpIntoMap();
 }
 
@@ -211,13 +211,21 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     UpdateDailySeed();
-    WarpToTruck();
+    WarpToRoom();
     if (IS_FRLG)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else
         RunScriptImmediately(EventScript_ResetAllMapFlags);
+    // PIGGY Set clock. Hide the ball.
+    RtcInitLocalTimeOffset(11, 0);         // clock reads 11:00
+    FlagSet(FLAG_SET_WALL_CLOCK);          // wall clock counts as already set
+    VarSet(VAR_LITTLEROOT_INTRO_STATE, 7); // value to verify, see below
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL);
+    else
+        FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL);
 #if IS_FRLG
-        StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
+    StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 #endif
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();

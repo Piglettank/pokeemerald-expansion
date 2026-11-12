@@ -7,12 +7,14 @@
 
 #define HEADER_NONE 0xFFFF
 
-enum WildPokemonArea {
+enum WildPokemonArea
+{
     WILD_AREA_LAND,
     WILD_AREA_WATER,
     WILD_AREA_ROCKS,
     WILD_AREA_FISHING,
-    WILD_AREA_HIDDEN
+    WILD_AREA_HIDDEN,
+    WILD_AREA_LAND_BY_WATER
 };
 
 struct WildPokemon
@@ -35,6 +37,7 @@ struct WildEncounterTypes
     const struct WildPokemonInfo *rockSmashMonsInfo;
     const struct WildPokemonInfo *fishingMonsInfo;
     const struct WildPokemonInfo *hiddenMonsInfo;
+    const struct WildPokemonInfo *landMonsByWaterInfo;
 };
 
 struct WildPokemonHeader
@@ -43,7 +46,6 @@ struct WildPokemonHeader
     u8 mapNum;
     const struct WildEncounterTypes encounterTypes[TIMES_OF_DAY_COUNT];
 };
-
 
 extern const struct WildPokemonHeader gWildMonHeaders[];
 extern const struct WildPokemonHeader gBattlePikeWildMonHeaders[];
@@ -71,6 +73,7 @@ bool8 AreLegendariesInSootopolisPreventingEncounters(void);
 u16 GetCurrentMapWildMonHeaderId(void);
 bool8 CheckFeebasAtCoords(s16 x, s16 y);
 u32 ChooseWildMonIndex_Land(void);
+u32 ChooseWildMonIndex_Land_By_Water(void);
 u32 ChooseWildMonIndex_Water(void);
 u32 ChooseWildMonIndex_Rocks(void);
 u32 ChooseHiddenMonIndex(void);

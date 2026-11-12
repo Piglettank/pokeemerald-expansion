@@ -249,8 +249,7 @@ static void MainMenu_FormatSavegameBadges(void);
 
 static const u16 sBirchSpeechBgPals[][16] = {
     INCGFX_U16("graphics/birch_speech/bg0.pal", ".gbapal"),
-    INCGFX_U16("graphics/birch_speech/bg1.pal", ".gbapal")
-};
+    INCGFX_U16("graphics/birch_speech/bg1.pal", ".gbapal")};
 
 static const u32 sBirchSpeechShadowGfx[] = INCGFX_U32("graphics/birch_speech/shadow.png", ".4bpp.smol");
 static const u32 sBirchSpeechBgMap[] = INCGFX_U32("graphics/birch_speech/map.bin", ".smolTM");
@@ -305,123 +304,107 @@ static const u8 gText_ContinueMenuBadges[] = _("BADGES");
 #define MENU_SCROLL_SHIFT WIN_RANGE(32, 32)
 
 static const struct WindowTemplate sWindowTemplates_MainMenu[] =
-{
-    // No saved game
-    // NEW GAME
     {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN0,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN0,
-        .paletteNum = 15,
-        .baseBlock = 1
-    },
-    // OPTIONS
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN1,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN1,
-        .paletteNum = 15,
-        .baseBlock = 0x35
-    },
-    // Has saved game
-    // CONTINUE
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN2,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN2,
-        .paletteNum = 15,
-        .baseBlock = 1
-    },
-    // NEW GAME
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN3,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN3,
-        .paletteNum = 15,
-        .baseBlock = 0x9D
-    },
-    // OPTION / MYSTERY GIFT
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN4,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN4,
-        .paletteNum = 15,
-        .baseBlock = 0xD1
-    },
-    // OPTION / MYSTERY EVENTS
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN5,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN5,
-        .paletteNum = 15,
-        .baseBlock = 0x105
-    },
-    // OPTION
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN6,
-        .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN6,
-        .paletteNum = 15,
-        .baseBlock = 0x139
-    },
-    // Error message window
-    {
-        .bg = 0,
-        .tilemapLeft = MENU_LEFT_ERROR,
-        .tilemapTop = MENU_TOP_ERROR,
-        .width = MENU_WIDTH_ERROR,
-        .height = MENU_HEIGHT_ERROR,
-        .paletteNum = 15,
-        .baseBlock = 0x16D
-    },
-    DUMMY_WIN_TEMPLATE
-};
+        // No saved game
+        // NEW GAME
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN0,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN0,
+            .paletteNum = 15,
+            .baseBlock = 1},
+        // OPTIONS
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN1,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN1,
+            .paletteNum = 15,
+            .baseBlock = 0x35},
+        // Has saved game
+        // CONTINUE
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN2,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN2,
+            .paletteNum = 15,
+            .baseBlock = 1},
+        // NEW GAME
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN3,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN3,
+            .paletteNum = 15,
+            .baseBlock = 0x9D},
+        // OPTION / MYSTERY GIFT
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN4,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN4,
+            .paletteNum = 15,
+            .baseBlock = 0xD1},
+        // OPTION / MYSTERY EVENTS
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN5,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN5,
+            .paletteNum = 15,
+            .baseBlock = 0x105},
+        // OPTION
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT,
+            .tilemapTop = MENU_TOP_WIN6,
+            .width = MENU_WIDTH,
+            .height = MENU_HEIGHT_WIN6,
+            .paletteNum = 15,
+            .baseBlock = 0x139},
+        // Error message window
+        {
+            .bg = 0,
+            .tilemapLeft = MENU_LEFT_ERROR,
+            .tilemapTop = MENU_TOP_ERROR,
+            .width = MENU_WIDTH_ERROR,
+            .height = MENU_HEIGHT_ERROR,
+            .paletteNum = 15,
+            .baseBlock = 0x16D},
+        DUMMY_WIN_TEMPLATE};
 
 static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
-{
     {
-        .bg = 0,
-        .tilemapLeft = 2,
-        .tilemapTop = 15,
-        .width = 27,
-        .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 1
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 5,
-        .width = 6,
-        .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 0x6D
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 2,
-        .width = 9,
-        .height = 10,
-        .paletteNum = 15,
-        .baseBlock = 0x85
-    },
-    DUMMY_WIN_TEMPLATE
-};
+        {.bg = 0,
+         .tilemapLeft = 2,
+         .tilemapTop = 15,
+         .width = 27,
+         .height = 4,
+         .paletteNum = 15,
+         .baseBlock = 1},
+        {.bg = 0,
+         .tilemapLeft = 3,
+         .tilemapTop = 5,
+         .width = 6,
+         .height = 4,
+         .paletteNum = 15,
+         .baseBlock = 0x6D},
+        {.bg = 0,
+         .tilemapLeft = 3,
+         .tilemapTop = 2,
+         .width = 9,
+         .height = 10,
+         .paletteNum = 15,
+         .baseBlock = 0x85},
+        DUMMY_WIN_TEMPLATE};
 
 static const u16 sMainMenuBgPal[] = INCGFX_U16("graphics/interface/main_menu_bg.pal", ".gbapal");
 static const u16 sMainMenuTextPal[] = INCGFX_U16("graphics/interface/main_menu_text.pal", ".gbapal");
@@ -430,25 +413,20 @@ static const u8 sTextColor_Headers[] = {TEXT_DYNAMIC_COLOR_1, TEXT_DYNAMIC_COLOR
 static const u8 sTextColor_MenuInfo[] = {TEXT_DYNAMIC_COLOR_1, TEXT_COLOR_WHITE, TEXT_DYNAMIC_COLOR_3};
 
 static const struct BgTemplate sMainMenuBgTemplates[] = {
-    {
-        .bg = 0,
-        .charBaseIndex = 2,
-        .mapBaseIndex = 30,
-        .screenSize = 0,
-        .paletteMode = 0,
-        .priority = 0,
-        .baseTile = 0
-    },
-    {
-        .bg = 1,
-        .charBaseIndex = 0,
-        .mapBaseIndex = 7,
-        .screenSize = 0,
-        .paletteMode = 0,
-        .priority = 3,
-        .baseTile = 0
-    }
-};
+    {.bg = 0,
+     .charBaseIndex = 2,
+     .mapBaseIndex = 30,
+     .screenSize = 0,
+     .paletteMode = 0,
+     .priority = 0,
+     .baseTile = 0},
+    {.bg = 1,
+     .charBaseIndex = 0,
+     .mapBaseIndex = 7,
+     .screenSize = 0,
+     .paletteMode = 0,
+     .priority = 3,
+     .baseTile = 0}};
 
 static const struct BgTemplate sBirchBgTemplate = {
     .bg = 0,
@@ -457,25 +435,21 @@ static const struct BgTemplate sBirchBgTemplate = {
     .screenSize = 0,
     .paletteMode = 0,
     .priority = 0,
-    .baseTile = 0
-};
+    .baseTile = 0};
 
 static const struct ScrollArrowsTemplate sScrollArrowsTemplate_MainMenu = {2, 0x78, 8, 3, 0x78, 0x98, 3, 4, 1, 1, 0};
 
 static const union AffineAnimCmd sSpriteAffineAnim_PlayerShrink[] = {
     AFFINEANIMCMD_FRAME(-2, -2, 0, 0x30),
-    AFFINEANIMCMD_END
-};
+    AFFINEANIMCMD_END};
 
 static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
-{
-    sSpriteAffineAnim_PlayerShrink
-};
+    {
+        sSpriteAffineAnim_PlayerShrink};
 
 static const struct MenuAction sMenuActions_Gender[] = {
     {gText_Boy, {NULL}},
-    {gText_Girl, {NULL}}
-};
+    {gText_Girl, {NULL}}};
 
 static const u8 *const sMalePresetNames[] = {
     COMPOUND_STRING("STU"),
@@ -497,8 +471,7 @@ static const u8 *const sMalePresetNames[] = {
     COMPOUND_STRING("LANDON"),
     COMPOUND_STRING("COLLIN"),
     COMPOUND_STRING("STANLEY"),
-    COMPOUND_STRING("QUINCY")
-};
+    COMPOUND_STRING("QUINCY")};
 
 static const u8 *const sFemalePresetNames[] = {
     COMPOUND_STRING("KIMMY"),
@@ -520,8 +493,7 @@ static const u8 *const sFemalePresetNames[] = {
     COMPOUND_STRING("LILLIE"),
     COMPOUND_STRING("TERRA"),
     COMPOUND_STRING("LUCY"),
-    COMPOUND_STRING("HALIE")
-};
+    COMPOUND_STRING("HALIE")};
 
 // The number of male vs. female names is assumed to be the same.
 // If they aren't, the smaller of the two sizes will be used and any extra names will be ignored.
@@ -529,10 +501,10 @@ static const u8 *const sFemalePresetNames[] = {
 
 enum
 {
-    HAS_NO_SAVED_GAME,  //NEW GAME, OPTION
-    HAS_SAVED_GAME,     //CONTINUE, NEW GAME, OPTION
-    HAS_MYSTERY_GIFT,   //CONTINUE, NEW GAME, MYSTERY GIFT, OPTION
-    HAS_MYSTERY_EVENTS, //CONTINUE, NEW GAME, MYSTERY GIFT, MYSTERY EVENTS, OPTION
+    HAS_NO_SAVED_GAME,  // NEW GAME, OPTION
+    HAS_SAVED_GAME,     // CONTINUE, NEW GAME, OPTION
+    HAS_MYSTERY_GIFT,   // CONTINUE, NEW GAME, MYSTERY GIFT, OPTION
+    HAS_MYSTERY_EVENTS, // CONTINUE, NEW GAME, MYSTERY GIFT, MYSTERY EVENTS, OPTION
 };
 
 enum
@@ -546,7 +518,7 @@ enum
     ACTION_INVALID
 };
 
-#define MAIN_MENU_BORDER_TILE   0x1D5
+#define MAIN_MENU_BORDER_TILE 0x1D5
 #define BIRCH_DLG_BASE_TILE_NUM 0xFC
 
 static void CB2_MainMenu(void)
@@ -640,7 +612,7 @@ static u32 InitMainMenu(bool8 returningFromOptionsMenu)
 #define tIsScrolled data[14]
 #define tWirelessAdapterConnected data[15]
 
-#define tArrowTaskIsScrolled data[15]   // For scroll indicator arrow task
+#define tArrowTaskIsScrolled data[15] // For scroll indicator arrow task
 
 static void Task_MainMenuCheckSaveFile(u8 taskId)
 {
@@ -689,9 +661,9 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
             gTasks[taskId].func = Task_WaitForSaveFileErrorWindow;
             break;
         }
-        if (sCurrItemAndOptionMenuCheck & OPTION_MENU_FLAG)   // are we returning from the options menu?
+        if (sCurrItemAndOptionMenuCheck & OPTION_MENU_FLAG) // are we returning from the options menu?
         {
-            switch (tMenuType)  // if so, highlight the OPTIONS item
+            switch (tMenuType) // if so, highlight the OPTIONS item
             {
             case HAS_NO_SAVED_GAME:
             case HAS_SAVED_GAME:
@@ -705,7 +677,7 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
                 break;
             }
         }
-        sCurrItemAndOptionMenuCheck &= ~OPTION_MENU_FLAG;  // turn off the "returning from options menu" flag
+        sCurrItemAndOptionMenuCheck &= ~OPTION_MENU_FLAG; // turn off the "returning from options menu" flag
         tCurrItem = sCurrItemAndOptionMenuCheck;
         tItemCount = tMenuType + 2;
     }
@@ -908,7 +880,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        IsWirelessAdapterConnected();   // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
+        IsWirelessAdapterConnected(); // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gTasks[taskId].func = Task_HandleMainMenuAPressed;
     }
@@ -1084,14 +1056,26 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
                 if (action != ACTION_OPTION)
                     sCurrItemAndOptionMenuCheck = 0;
                 else
-                    sCurrItemAndOptionMenuCheck |= OPTION_MENU_FLAG;  // entering the options menu
+                    sCurrItemAndOptionMenuCheck |= OPTION_MENU_FLAG; // entering the options menu
                 StartNewGameSceneFrlg();
                 return;
             }
-
+            // PIGGY SKIP INTRO FROM HERE
             gPlttBufferUnfaded[0] = RGB_BLACK;
             gPlttBufferFaded[0] = RGB_BLACK;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+
+            gSaveBlock2Ptr->playerGender = MALE;        // or FEMALE
+            NewGameBirchSpeech_SetDefaultPlayerName(0); // index into the preset names
+
+            FreeAllWindowBuffers();
+            SetMainCallback2(CB2_NewGame);
+            DestroyTask(taskId);
+            // TO HERE
+
+            // OLD CODE
+            // gPlttBufferUnfaded[0] = RGB_BLACK;
+            // gPlttBufferFaded[0] = RGB_BLACK;
+            // gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
             break;
         case ACTION_CONTINUE:
             gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -1134,7 +1118,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         if (action != ACTION_OPTION)
             sCurrItemAndOptionMenuCheck = 0;
         else
-            sCurrItemAndOptionMenuCheck |= OPTION_MENU_FLAG;  // entering the options menu
+            sCurrItemAndOptionMenuCheck |= OPTION_MENU_FLAG; // entering the options menu
     }
 }
 
@@ -1549,7 +1533,7 @@ static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
         NewGameBirchSpeech_ClearGenderWindow(1, 1);
         gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
         break;
-    default: //repeat task if nothing is selected
+    default: // repeat task if nothing is selected
         break;
     }
     gender2 = Menu_GetCursorPos();
@@ -2136,15 +2120,13 @@ static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void)
 void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
 {
     const u8 *name;
-    u8 i;
 
     if (gSaveBlock2Ptr->playerGender == MALE)
         name = sMalePresetNames[nameId];
     else
         name = sFemalePresetNames[nameId];
-    for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        gSaveBlock2Ptr->playerName[i] = name[i];
-    gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
+
+    StringCopyN(gSaveBlock2Ptr->playerName, name, PLAYER_NAME_LENGTH);
 }
 
 static void CreateMainMenuErrorWindow(const u8 *str)

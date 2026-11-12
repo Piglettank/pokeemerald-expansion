@@ -207,8 +207,16 @@ override CFLAGS := $(filter-out -O1 -Og -O2,$(CFLAGS))
 override CFLAGS += -O0
 endif
 
-# Variable filled out in other make files
 AUTO_GEN_TARGETS :=
+
+# PIGGY Added poryscript
+SCRIPT := tools/poryscript/poryscript$(EXE)
+
+AUTO_GEN_TARGETS += $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
+
+data/%.inc: data/%.pory
+	$(SCRIPT) -i $< -o $@ -fc tools/poryscript/font_config.json -cc tools/poryscript/command_config.json
+
 include make_tools.mk
 # Tool executables
 SMOLTM       := $(TOOLS_DIR)/compresSmol/compresSmolTilemap$(EXE)
